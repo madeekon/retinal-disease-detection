@@ -1,0 +1,121 @@
+{
+  "timestamp": "2026-10-25 19:13:53",
+  "seed": 42,
+  "ratios_requested": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "method": "sklearn.train_test_split on split groups (patients), stratified by group composition (n_images x n_abnormal); test first, then validation from the remainder",
+  "group_column": "split_group",
+  "source_manifest": "C:\\Users\\Admin\\PycharmProjects\\AINN_Assignment_03\\outputs\\data_audit\\clean_manifest.csv",
+  "source_manifest_sha256": "8fee73e9d74cc70a0afd5db288d9cd0c75625765c544aca8381de50e0092c4f2",
+  "verification": {
+    "every_image_assigned": true,
+    "image_ids_unique": true,
+    "filenames_unique": true,
+    "groups_in_one_split": true,
+    "patients_in_one_split": true,
+    "identical_files_in_one_split": true,
+    "near_duplicate_pairs_checked": 32,
+    "near_duplicate_pairs_in_one_split": true,
+    "patient_overlap_counts": {
+      "train&val": 0,
+      "test&train": 0,
+      "test&val": 0
+    },
+    "all_passed": true
+  },
+  "composition": [
+    {
+      "split": "train",
+      "images": 4468,
+      "image_share": 0.6993269682266395,
+      "patients": 2348,
+      "patient_share": 0.699225729600953,
+      "split_groups": 2333,
+      "normal_0": 2011,
+      "abnormal_1": 2457,
+      "abnormal_fraction": 0.5499104744852283,
+      "left_eyes": 2241,
+      "right_eyes": 2227,
+      "class_N": 2011,
+      "class_D": 1098,
+      "class_G": 207,
+      "class_C": 210,
+      "class_A": 192,
+      "class_H": 89,
+      "class_M": 162,
+      "class_O": 499
+    },
+    {
+      "split": "val",
+      "images": 964,
+      "image_share": 0.15088433244639224,
+      "patients": 507,
+      "patient_share": 0.1509827278141751,
+      "split_groups": 501,
+      "normal_0": 431,
+      "abnormal_1": 533,
+      "abnormal_fraction": 0.5529045643153527,
+      "left_eyes": 478,
+      "right_eyes": 486,
+      "class_N": 431,
+      "class_D": 240,
+      "class_G": 42,
+      "class_C": 46,
+      "class_A": 38,
+      "class_H": 15,
+      "class_M": 49,
+      "class_O": 103
+    },
+    {
+      "split": "test",
+      "images": 957,
+      "image_share": 0.14978869932696823,
+      "patients": 503,
+      "patient_share": 0.14979154258487196,
+      "split_groups": 501,
+      "normal_0": 430,
+      "abnormal_1": 527,
+      "abnormal_fraction": 0.5506792058516197,
+      "left_eyes": 476,
+      "right_eyes": 481,
+      "class_N": 430,
+      "class_D": 269,
+      "class_G": 35,
+      "class_C": 37,
+      "class_A": 36,
+      "class_H": 24,
+      "class_M": 21,
+      "class_O": 105
+    }
+  ],
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "sklearn": "1.8.0"
+  },
+  "files": {
+    "train": {
+      "path": "train.csv",
+      "sha256": "65e1dd189cb14e8728b1ca52942ef02735e606c1808c5af3233175210090ffdf",
+      "n_rows": 4468
+    },
+    "val": {
+      "path": "val.csv",
+      "sha256": "425eeb7aeb2bd26c8dffde6706cb70509072ba4a35e6ec3fc5c50e7bfba6f19b",
+      "n_rows": 964
+    },
+    "test": {
+      "path": "test.csv",
+      "sha256": "abcdf6ed7cd0a384f097d529ffe9782b94ef873adb8c7802ca9335baa8e6e367",
+      "n_rows": 957
+    },
+    "assignments": {
+      "path": "split_assignments.csv",
+      "sha256": "3d078c708bb1cbea259c6a083a85d3b7f5fb6e304b3e882e8a319449285b50eb"
+    }
+  }
+}

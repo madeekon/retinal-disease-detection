@@ -1,0 +1,67 @@
+# =============================================================================
+# AINN Practical Assignment 03 - Retinal Disease Detection (Normal vs Abnormal)
+# Central configuration. All scripts and the notebook read this file.
+# Relative data paths are resolved against data.dataset_root.
+# Relative output paths are resolved against the project root.
+# The dataset root can be overridden with the environment variable RETINA_DATA_ROOT.
+# =============================================================================
+
+project_name: AINN_Assignment_03
+seed: 42
+
+data:
+  dataset_root: "C:/Users/Admin/PycharmProjects/AIDA_A1/Ocular_Disease_Recognition"
+  full_df_csv: "full_df.csv"
+  odir_xlsx: "ODIR-5K/ODIR-5K/data.xlsx"
+
+  # Primary image folder used by every experiment (embeddings and CNN).
+  image_dir: "preprocessed_images_2"
+
+  # Other folders that are inspected by the audit only (coverage and duplicates).
+  reference_image_dirs:
+    preprocessed_images: "preprocessed_images"
+    raw_training_images: "ODIR-5K/ODIR-5K/Training Images"
+    raw_testing_images: "ODIR-5K/ODIR-5K/Testing Images"
+
+  # DenseNet121 embeddings produced in a previous course notebook (AIDA_A5_1).
+  # They are audited for alignment but not trusted blindly.
+  legacy_embeddings_dir: "C:/Users/Admin/PycharmProjects/AIDA_A1/.venv/embeddings"
+
+audit:
+  decode_images: true            # open and fully decode every labeled image in image_dir
+  hash_images: true              # MD5 of every labeled image for exact duplicate detection
+  compare_reference_dirs: true   # check whether the same filenames exist in reference dirs
+  hash_reference_preprocessed: true  # MD5 of preprocessed_images to compare with image_dir
+  dark_image_mean_threshold: 10.0    # mean gray level below this value is flagged (not removed)
+  verify_legacy_embeddings_n: 20     # images re-encoded to verify legacy embedding row alignment (0 = skip)
+  near_duplicates:
+    # ODIR contains the same retina under different patient IDs (repeat visits / double registration).
+    # Such pairs must stay in one subset, otherwise the test set leaks into training.
+    enabled: true
+    source: legacy_if_verified       # verified legacy DenseNet121 vectors, otherwise recomputed (needs torch)
+    # Thresholds on DenseNet121 descriptor cosine similarity, chosen after visual review of the pairs:
+    identity_threshold: 0.98         # >= : same retina with high confidence; normal/abnormal disagreement -> excluded
+    merge_threshold: 0.97            # >= : patients merged into one split group (precaution, harmless if wrong)
+    review_threshold: 0.96           # [0.96, 0.97): listed and plotted for manual review only
+    same_side_only: true             # a left eye cannot be the same retina as a right eye
+  exclusion_policy:
+    missing_image: true
+    unreadable_image: true
+    invalid_label: true
+    duplicate_filename: true
+    contradictory_eye_keywords: true  # abnormal label while eye keywords also say "normal fundus"
+    near_duplicate_label_conflict: true  # same retina (>= identity_threshold) labeled normal in one image, abnormal in the other
+
+split:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+  seed: 42
+  group_column: split_group      # patient ID, merged when identical or near-identical images link patients
+  min_stratum_size: 6            # rarer patient strata are pooled before stratification
+
+output:
+  audit_dir: "outputs/data_audit"
+  splits_dir: "data/splits"
+  logs_dir: "outputs/logs"
+  figures_dir: "outputs/figures"
