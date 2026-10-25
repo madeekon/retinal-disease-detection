@@ -1,0 +1,206 @@
+{
+  "timestamp": "2026-10-26 00:36:01",
+  "model": "Assignment 03 DenseNet121, frozen backbone, no augmentation (cnn_no_aug.pt)",
+  "target_layer": "net.features (last dense block + norm5, 7x7x1024)",
+  "explained_score": "logit for predicted Abnormal, -logit for predicted Normal",
+  "selection": "3 most confident test images per group from Assignment 03 predictions",
+  "check_max_abs_diff_vs_saved_probability": 0.0005155801799011095,
+  "mean_heat_share_outside_fundus": 0.10676561947911978,
+  "cases": [
+    {
+      "group": "True positive",
+      "filename": "2282_right.jpg",
+      "label_code": "C",
+      "true": 1,
+      "pred": 1,
+      "prob_abnormal": 0.9965607523918152,
+      "prob_saved_in_assignment03": 0.9965436,
+      "heat_share_outside_fundus": 0.1074354499578476,
+      "heat_share_central_third": 0.1621578484773636,
+      "peak_xy_224": [
+        80,
+        79
+      ]
+    },
+    {
+      "group": "True positive",
+      "filename": "1857_left.jpg",
+      "label_code": "A",
+      "true": 1,
+      "pred": 1,
+      "prob_abnormal": 0.9892537593841553,
+      "prob_saved_in_assignment03": 0.98922324,
+      "heat_share_outside_fundus": 0.07510802894830704,
+      "heat_share_central_third": 0.25094661116600037,
+      "peak_xy_224": [
+        143,
+        140
+      ]
+    },
+    {
+      "group": "True positive",
+      "filename": "1574_right.jpg",
+      "label_code": "M",
+      "true": 1,
+      "pred": 1,
+      "prob_abnormal": 0.986531674861908,
+      "prob_saved_in_assignment03": 0.98657167,
+      "heat_share_outside_fundus": 0.046076659113168716,
+      "heat_share_central_third": 0.3097265660762787,
+      "peak_xy_224": [
+        111,
+        112
+      ]
+    },
+    {
+      "group": "True negative",
+      "filename": "822_left.jpg",
+      "label_code": "N",
+      "true": 0,
+      "pred": 0,
+      "prob_abnormal": 0.15597563982009888,
+      "prob_saved_in_assignment03": 0.15649122,
+      "heat_share_outside_fundus": 0.09965517371892929,
+      "heat_share_central_third": 0.0953245460987091,
+      "peak_xy_224": [
+        139,
+        48
+      ]
+    },
+    {
+      "group": "True negative",
+      "filename": "3940_left.jpg",
+      "label_code": "N",
+      "true": 0,
+      "pred": 0,
+      "prob_abnormal": 0.163421168923378,
+      "prob_saved_in_assignment03": 0.16317856,
+      "heat_share_outside_fundus": 0.13667094707489014,
+      "heat_share_central_third": 0.15603899955749512,
+      "peak_xy_224": [
+        141,
+        48
+      ]
+    },
+    {
+      "group": "True negative",
+      "filename": "2479_right.jpg",
+      "label_code": "N",
+      "true": 0,
+      "pred": 0,
+      "prob_abnormal": 0.1645762026309967,
+      "prob_saved_in_assignment03": 0.16505408,
+      "heat_share_outside_fundus": 0.12902651727199554,
+      "heat_share_central_third": 0.14695191383361816,
+      "peak_xy_224": [
+        111,
+        47
+      ]
+    },
+    {
+      "group": "False positive",
+      "filename": "2197_left.jpg",
+      "label_code": "N",
+      "true": 0,
+      "pred": 1,
+      "prob_abnormal": 0.9333745837211609,
+      "prob_saved_in_assignment03": 0.9335521,
+      "heat_share_outside_fundus": 0.09410353004932404,
+      "heat_share_central_third": 0.21527479588985443,
+      "peak_xy_224": [
+        143,
+        111
+      ]
+    },
+    {
+      "group": "False positive",
+      "filename": "552_right.jpg",
+      "label_code": "N",
+      "true": 0,
+      "pred": 1,
+      "prob_abnormal": 0.8999331593513489,
+      "prob_saved_in_assignment03": 0.8996516,
+      "heat_share_outside_fundus": 0.08990200608968735,
+      "heat_share_central_third": 0.2296680063009262,
+      "peak_xy_224": [
+        143,
+        143
+      ]
+    },
+    {
+      "group": "False positive",
+      "filename": "3218_right.jpg",
+      "label_code": "N",
+      "true": 0,
+      "pred": 1,
+      "prob_abnormal": 0.8776002526283264,
+      "prob_saved_in_assignment03": 0.8775817,
+      "heat_share_outside_fundus": 0.15867024660110474,
+      "heat_share_central_third": 0.1164836511015892,
+      "peak_xy_224": [
+        47,
+        111
+      ]
+    },
+    {
+      "group": "False negative",
+      "filename": "1246_right.jpg",
+      "label_code": "G",
+      "true": 1,
+      "pred": 0,
+      "prob_abnormal": 0.14884673058986664,
+      "prob_saved_in_assignment03": 0.14891148,
+      "heat_share_outside_fundus": 0.11659490317106247,
+      "heat_share_central_third": 0.06079891324043274,
+      "peak_xy_224": [
+        79,
+        176
+      ]
+    },
+    {
+      "group": "False negative",
+      "filename": "140_right.jpg",
+      "label_code": "O",
+      "true": 1,
+      "pred": 0,
+      "prob_abnormal": 0.17405079305171967,
+      "prob_saved_in_assignment03": 0.17384852,
+      "heat_share_outside_fundus": 0.09731756150722504,
+      "heat_share_central_third": 0.13051065802574158,
+      "peak_xy_224": [
+        175,
+        112
+      ]
+    },
+    {
+      "group": "False negative",
+      "filename": "4251_left.jpg",
+      "label_code": "D",
+      "true": 1,
+      "pred": 0,
+      "prob_abnormal": 0.18210220336914062,
+      "prob_saved_in_assignment03": 0.18227991,
+      "heat_share_outside_fundus": 0.13062641024589539,
+      "heat_share_central_third": 0.15497268736362457,
+      "peak_xy_224": [
+        143,
+        144
+      ]
+    }
+  ],
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "3.1.0",
+    "sklearn": "1.9.1",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2",
+    "PIL": "12.3.0",
+    "yaml": "6.0.3",
+    "openpyxl": "3.1.5",
+    "tqdm": "4.70.1",
+    "torch": "2.12.0+cu126",
+    "torchvision": "0.27.0+cu126",
+    "psutil": "7.2.2"
+  }
+}

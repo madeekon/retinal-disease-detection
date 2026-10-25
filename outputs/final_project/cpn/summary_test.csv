@@ -1,0 +1,2 @@
+config,n_runs,accuracy,precision,recall,f1,roc_auc
+CPN-144 (12x12 Kohonen units),3,0.568 ± 0.007,0.607 ± 0.014,0.612 ± 0.044,0.609 ± 0.015,0.620 ± 0.002

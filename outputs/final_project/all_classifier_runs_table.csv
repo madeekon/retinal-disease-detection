@@ -1,0 +1,16 @@
+model,family,source,input,n_runs,accuracy,precision,recall,f1,roc_auc,false_negatives,false_positives
+Logistic Regression,Classical ML,Assignment 03,1024-d embeddings,1,0.674 ± 0.000,0.697 ± 0.000,0.723 ± 0.000,0.709 ± 0.000,0.750 ± 0.000,146.0,166.0
+SVM-RBF,Classical ML,Final stage 1,1024-d embeddings,1,0.690 ± 0.000,0.721 ± 0.000,0.712 ± 0.000,0.716 ± 0.000,0.766 ± 0.000,152.0,145.0
+RandomForest,Classical ML,Final stage 1,1024-d embeddings,3,0.682 ± 0.006,0.705 ± 0.002,0.726 ± 0.016,0.715 ± 0.008,0.755 ± 0.003,144.3,160.0
+"MLP A: 1024-256-1, ReLU, no dropout",Neural network,Final stage 1,1024-d embeddings,3,0.694 ± 0.010,0.718 ± 0.014,0.731 ± 0.005,0.725 ± 0.005,0.770 ± 0.001,141.7,151.3
+"MLP B: 1024-256-1, ReLU, dropout 0.5",Neural network,Final stage 1,1024-d embeddings,3,0.697 ± 0.007,0.722 ± 0.011,0.732 ± 0.005,0.727 ± 0.003,0.772 ± 0.001,141.0,149.0
+"MLP C: 1024-512-128-1, ReLU, dropout 0.3",Neural network,Final stage 1,1024-d embeddings,3,0.693 ± 0.002,0.720 ± 0.016,0.727 ± 0.032,0.723 ± 0.008,0.771 ± 0.002,144.0,149.3
+"MLP D: 1024-256-1, Tanh, dropout 0.3",Neural network,Final stage 1,1024-d embeddings,3,0.692 ± 0.006,0.722 ± 0.006,0.718 ± 0.011,0.720 ± 0.006,0.767 ± 0.003,148.7,146.0
+MLP optimizer: Full-batch GD,Neural network,Final stage 1,1024-d embeddings,3,0.695 ± 0.011,0.725 ± 0.019,0.719 ± 0.015,0.722 ± 0.005,0.772 ± 0.001,148.0,144.0
+MLP optimizer: SGD (batch 1),Neural network,Final stage 1,1024-d embeddings,3,0.688 ± 0.009,0.725 ± 0.025,0.701 ± 0.036,0.712 ± 0.010,0.764 ± 0.009,157.3,141.0
+MLP optimizer: Mini-batch GD (batch 64),Neural network,Final stage 1,1024-d embeddings,3,0.689 ± 0.008,0.715 ± 0.010,0.722 ± 0.002,0.719 ± 0.006,0.770 ± 0.002,146.7,151.3
+MLP optimizer: SGD + momentum 0.9 (batch 64),Neural network,Final stage 1,1024-d embeddings,3,0.694 ± 0.010,0.716 ± 0.011,0.738 ± 0.008,0.727 ± 0.009,0.770 ± 0.003,138.0,154.7
+MLP optimizer: Adam (batch 64),Neural network,Final stage 1,1024-d embeddings,3,0.691 ± 0.007,0.715 ± 0.010,0.731 ± 0.005,0.723 ± 0.004,0.771 ± 0.001,142.0,153.7
+Counterpropagation Network (144 units),Neural network,Final stage 2,PCA-32 of embeddings,3,0.568 ± 0.007,0.607 ± 0.014,0.612 ± 0.044,0.609 ± 0.015,0.620 ± 0.002,204.3,209.3
+DenseNet121 CNN (frozen backbone),Advanced CNN,Assignment 03,224x224 images,1,0.672 ± 0.000,0.683 ± 0.000,0.755 ± 0.000,0.717 ± 0.000,0.754 ± 0.000,129.0,185.0
+DenseNet121 CNN + augmentation,Advanced CNN,Assignment 03,224x224 images,1,0.665 ± 0.000,0.674 ± 0.000,0.757 ± 0.000,0.713 ± 0.000,0.749 ± 0.000,128.0,193.0

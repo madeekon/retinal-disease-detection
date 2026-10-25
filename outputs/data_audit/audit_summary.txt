@@ -1,0 +1,46 @@
+DATA AUDIT SUMMARY
+======================================================================
+full_df.csv rows (one per image)        : 6392
+Unique patient IDs                      : 3358
+Rows per patient                        : {1: 324, 2: 3034}
+Fully duplicated rows                   : 0
+Patients with inconsistent fields       : 0
+
+Image-level labels (labels/target)
+  8-class counts                        : {'N': 2873, 'D': 1608, 'G': 284, 'C': 293, 'A': 266, 'H': 128, 'M': 232, 'O': 708}
+  Binary counts                         : {'normal_0': 2873, 'abnormal_1': 3519}
+  Normal eyes in patients with N flag 0 : 772
+  Label issues                          : {'abnormal_label_with_normal_fundus_keyword': 1}
+
+data.xlsx cross-check                   : ok (stdlib zipfile/xml fallback (openpyxl not installed))
+  Patient field mismatches (total)      : 0
+  Eyes in xlsx with / without label     : 6392 / 608
+
+Primary image folder                    : C:\Users\Admin\PycharmProjects\AIDA_A1\Ocular_Disease_Recognition\preprocessed_images_2
+  Image files in folder                 : 8000
+  Files without image-level label       : 1608 {'odir_testing_image_no_label': 1000, 'odir_training_image_without_image_level_label': 608}
+  Labeled rows matched to a file        : 6392 / 6392
+  Missing / unreadable                  : 0 / 0
+  Image sizes                           : {'512x512': 6392}
+  Dark images flagged (kept)            : 2 ['1260_right.jpg', '1209_left.jpg']
+  Coverage in reference folders         : {'preprocessed_images': 6392, 'raw_training_images': 6392, 'raw_testing_images': 0}
+  Primary vs preprocessed_images        : {'labeled_images_present_in_both': 6392, 'byte_identical_to_preprocessed_images': 6392}
+
+Exact duplicate groups (MD5)            : 0 (cross-patient 0)
+Near-duplicate pairs (cos >= 0.96)      : 501
+  Merged into one split group (>= 0.97) : 33 pairs, 40 patients
+  Same retina, high confidence (>= 0.98): 14 pairs, 1 with normal/abnormal conflict (excluded)
+  Merged pairs with other 8-class label : 16
+  Descriptor source                     : verified legacy embeddings
+Excluded records                        : 3 {'contradictory_eye_keywords': 1, 'near_duplicate_label_conflict': 2}
+
+CLEAN DATASET
+  Images                                : 6389
+  Patients / split groups               : 3358 / 3335 (17 groups contain >1 patient ID)
+  Binary counts                         : {'normal_0': 2872, 'abnormal_1': 3517}  (abnormal fraction 0.5505)
+  8-class counts                        : {'N': 2872, 'D': 1607, 'G': 284, 'C': 293, 'A': 266, 'H': 128, 'M': 232, 'O': 707}
+
+Legacy embeddings                       : ok [6392, 1024]
+  Conclusion                            : Rows are aligned with full_df.csv row order (verified by re-encoding). Labels stored with them are patient-level and must not be used.
+  Re-encode check                       : n=20 min cos same row=1.00000, max cos other rows=0.96703
+  Legacy vs image-level binary disagree  : 772

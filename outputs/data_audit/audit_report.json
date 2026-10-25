@@ -1,0 +1,315 @@
+{
+  "paths": {
+    "full_df_csv": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\Ocular_Disease_Recognition\\full_df.csv",
+    "odir_xlsx": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\Ocular_Disease_Recognition\\ODIR-5K\\ODIR-5K\\data.xlsx",
+    "image_dir": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\Ocular_Disease_Recognition\\preprocessed_images_2",
+    "reference_image_dirs": {
+      "preprocessed_images": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\Ocular_Disease_Recognition\\preprocessed_images",
+      "raw_training_images": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\Ocular_Disease_Recognition\\ODIR-5K\\ODIR-5K\\Training Images",
+      "raw_testing_images": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\Ocular_Disease_Recognition\\ODIR-5K\\ODIR-5K\\Testing Images"
+    },
+    "legacy_embeddings_dir": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\.venv\\embeddings"
+  },
+  "schema": {
+    "n_rows": 6392,
+    "n_columns": 19,
+    "columns": [
+      "ID",
+      "Patient Age",
+      "Patient Sex",
+      "Left-Fundus",
+      "Right-Fundus",
+      "Left-Diagnostic Keywords",
+      "Right-Diagnostic Keywords",
+      "N",
+      "D",
+      "G",
+      "C",
+      "A",
+      "H",
+      "M",
+      "O",
+      "filepath",
+      "labels",
+      "target",
+      "filename"
+    ],
+    "missing_values_per_column": {
+      "ID": 0,
+      "Patient Age": 0,
+      "Patient Sex": 0,
+      "Left-Fundus": 0,
+      "Right-Fundus": 0,
+      "Left-Diagnostic Keywords": 0,
+      "Right-Diagnostic Keywords": 0,
+      "N": 0,
+      "D": 0,
+      "G": 0,
+      "C": 0,
+      "A": 0,
+      "H": 0,
+      "M": 0,
+      "O": 0,
+      "filepath": 0,
+      "labels": 0,
+      "target": 0,
+      "filename": 0
+    },
+    "n_fully_duplicated_rows": 0,
+    "n_unique_patient_ids": 3358,
+    "n_unique_filenames": 6392,
+    "rows_per_patient_distribution": {
+      "1": 324,
+      "2": 3034
+    },
+    "patients_with_inconsistent_patient_fields": 0,
+    "filepath_directories": {
+      "../input/ocular-disease-recognition-odir5k/ODIR-5K/Training Images": 6392
+    },
+    "interpretation": "Each row is one image. Patient-level columns (age, sex, both keywords, N..O flags) are repeated on the left- and right-eye rows of the same patient."
+  },
+  "labels": {
+    "image_level_class_counts": {
+      "N": 2873,
+      "D": 1608,
+      "G": 284,
+      "C": 293,
+      "A": 266,
+      "H": 128,
+      "M": 232,
+      "O": 708
+    },
+    "binary_counts": {
+      "normal_0": 2873,
+      "abnormal_1": 3519
+    },
+    "patient_level_flag_sums_over_rows": {
+      "N": 2101,
+      "D": 2123,
+      "G": 397,
+      "C": 402,
+      "A": 319,
+      "H": 203,
+      "M": 306,
+      "O": 1588
+    },
+    "normal_images_of_patients_with_patient_N_flag_0": 772,
+    "abnormal_images_whose_disease_type_is_not_flagged_at_patient_level": 3,
+    "label_issue_counts": {
+      "abnormal_label_with_normal_fundus_keyword": 1
+    },
+    "explanation": "A patient with one diseased eye has N=0 at patient level, but the healthy eye still has image-level label N. Using patient flags as image labels would mislabel those healthy eyes."
+  },
+  "xlsx_cross_check": {
+    "status": "ok",
+    "reader": "stdlib zipfile/xml fallback (openpyxl not installed)",
+    "xlsx_rows_patients": 3500,
+    "full_df_patients_missing_in_xlsx": 0,
+    "xlsx_patients_absent_from_full_df": 142,
+    "patient_field_mismatches": {
+      "Patient Age": 0,
+      "Patient Sex": 0,
+      "Left-Fundus": 0,
+      "Right-Fundus": 0,
+      "Left-Diagnostic Keywords": 0,
+      "Right-Diagnostic Keywords": 0,
+      "N": 0,
+      "D": 0,
+      "G": 0,
+      "C": 0,
+      "A": 0,
+      "H": 0,
+      "M": 0,
+      "O": 0
+    },
+    "xlsx_eye_images": 7000,
+    "xlsx_eye_images_with_image_level_label": 6392,
+    "xlsx_eye_images_without_image_level_label": 608,
+    "top_keywords_of_unlabeled_eyes": {
+      "lens dust，normal fundus": 222,
+      "laser spot，moderate non proliferative retinopathy": 29,
+      "spotted membranous change": 22,
+      "low image quality": 20,
+      "retinal pigmentation": 18,
+      "chorioretinal atrophy": 17,
+      "tessellated fundus，peripapillary atrophy": 14,
+      "retinitis pigmentosa": 11,
+      "tessellated fundus": 11,
+      "lens dust，cataract": 10,
+      "lens dust，drusen": 9,
+      "retinochoroidal coloboma": 8,
+      "lens dust，macular epiretinal membrane": 7,
+      "lens dust，epiretinal membrane": 7,
+      "post retinal laser surgery，moderate non proliferative retinopathy": 7
+    }
+  },
+  "image_dir_scan": {
+    "image_dir": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\Ocular_Disease_Recognition\\preprocessed_images_2",
+    "n_image_files": 8000,
+    "n_unique_basenames": 8000,
+    "basenames_found_more_than_once": 0,
+    "files_without_image_level_label": 1608,
+    "unlabeled_files_by_category": {
+      "odir_testing_image_no_label": 1000,
+      "odir_training_image_without_image_level_label": 608
+    },
+    "reference_dirs_file_counts": {
+      "preprocessed_images": 6392,
+      "raw_training_images": 7000,
+      "raw_testing_images": 1000
+    }
+  },
+  "image_checks": {
+    "labeled_rows": 6392,
+    "labeled_rows_with_image_found": 6392,
+    "labeled_rows_missing_image": 0,
+    "matched_filename_patient_id_ok": 6392,
+    "readable_images": 6392,
+    "unreadable_images": 0,
+    "image_size_counts": {
+      "512x512": 6392
+    },
+    "image_mode_counts": {
+      "RGB": 6392
+    },
+    "dark_images_flagged": 2,
+    "dark_images": [
+      "1260_right.jpg",
+      "1209_left.jpg"
+    ],
+    "dark_threshold_mean_gray": 10.0,
+    "coverage_in_reference_dirs": {
+      "preprocessed_images": 6392,
+      "raw_training_images": 6392,
+      "raw_testing_images": 0
+    },
+    "primary_vs_preprocessed_images": {
+      "labeled_images_present_in_both": 6392,
+      "byte_identical_to_preprocessed_images": 6392
+    }
+  },
+  "legacy_embeddings": {
+    "status": "ok",
+    "path": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\.venv\\embeddings",
+    "shape": [
+      6392,
+      1024
+    ],
+    "dtype": "float32",
+    "verified": true,
+    "metadata_columns": [
+      "label",
+      "Patient Age",
+      "Patient Sex"
+    ],
+    "stored_filenames": false,
+    "row_count_matches_full_df": true,
+    "fraction_negative_values_first_2000_rows": 0.39934619140625,
+    "note_on_negative_values": "Negative values mean the vectors were pooled from densenet.features WITHOUT the final ReLU used by torchvision's DenseNet forward(). They differ from the classifier input of the pretrained network used in the CNN experiments.",
+    "metadata_label_equals_patient_priority_label_in_row_order": 1.0,
+    "metadata_age_equals_full_df_age_in_row_order": 1.0,
+    "legacy_vs_image_level_binary_disagreements": 772,
+    "reencode_check": {
+      "status": "ok",
+      "n_checked": 20,
+      "cosine_same_row_min": 0.9999998807907104,
+      "cosine_same_row_mean": 0.9999999791383744,
+      "cosine_best_other_row_max": 0.9670289754867554,
+      "same_row_is_nearest_count": 20,
+      "aligned": true,
+      "recipe": "DenseNet121 IMAGENET1K_V1 .features -> adaptive_avg_pool2d (no ReLU), Resize(224,224)"
+    },
+    "conclusion": "Rows are aligned with full_df.csv row order (verified by re-encoding). Labels stored with them are patient-level and must not be used."
+  },
+  "duplicates": {
+    "exact_md5_groups": 0,
+    "exact_md5_groups_cross_patient": 0,
+    "near_duplicates": {
+      "enabled": true,
+      "descriptor_source": "verified legacy embeddings",
+      "descriptor_recipe": "DenseNet121 IMAGENET1K_V1 .features -> adaptive_avg_pool2d (no ReLU), Resize(224,224)",
+      "review_threshold": 0.96,
+      "merge_threshold": 0.97,
+      "identity_threshold": 0.98,
+      "same_side_only": true,
+      "pairs_at_or_above_review_threshold": 501,
+      "pairs_merged": 33,
+      "patients_involved_in_merged_pairs": 40,
+      "pairs_same_retina_high_confidence": 14,
+      "same_retina_pairs_with_binary_label_conflict": 1,
+      "merged_pairs_with_different_8class_label": 16,
+      "review_only_pairs": 468
+    }
+  },
+  "exclusions": {
+    "n_excluded": 3,
+    "by_reason": {
+      "contradictory_eye_keywords": 1,
+      "near_duplicate_label_conflict": 2
+    },
+    "excluded_files": [
+      "875_left.jpg",
+      "4330_left.jpg",
+      "4552_left.jpg"
+    ],
+    "policy": {
+      "missing_image": true,
+      "unreadable_image": true,
+      "invalid_label": true,
+      "duplicate_filename": true,
+      "contradictory_eye_keywords": true,
+      "near_duplicate_label_conflict": true
+    }
+  },
+  "clean_dataset": {
+    "n_images": 6389,
+    "n_patients": 3358,
+    "n_split_groups": 3335,
+    "split_groups_with_more_than_one_patient": 17,
+    "images_per_patient": {
+      "1": 327,
+      "2": 3031
+    },
+    "binary_counts": {
+      "normal_0": 2872,
+      "abnormal_1": 3517
+    },
+    "abnormal_fraction": 0.5504773830020347,
+    "class_counts": {
+      "N": 2872,
+      "D": 1607,
+      "G": 284,
+      "C": 293,
+      "A": 266,
+      "H": 128,
+      "M": 232,
+      "O": 707
+    },
+    "eye_counts": {
+      "left": 3195,
+      "right": 3194
+    }
+  },
+  "meta": {
+    "timestamp": "2026-10-25 19:13:45",
+    "runtime_seconds": 31.0,
+    "seed": 42,
+    "config_path": "C:\\Users\\Admin\\PycharmProjects\\AINN_Assignment_03\\configs\\config.yaml",
+    "python_executable": "C:\\Users\\Admin\\PycharmProjects\\AIDA_A1\\.venv\\Scripts\\python.exe",
+    "library_versions": {
+      "python": "3.11.9",
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "sklearn": "1.8.0",
+      "scipy": "1.17.1",
+      "matplotlib": "3.10.9",
+      "PIL": "12.2.0",
+      "yaml": "6.0.3",
+      "openpyxl": "not installed",
+      "tqdm": "4.67.3",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "psutil": "7.2.2"
+    }
+  }
+}

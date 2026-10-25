@@ -1,0 +1,172 @@
+{
+  "timestamp": "2026-10-26 00:10:41",
+  "architecture": {
+    "input": "1024-d DenseNet121 embeddings -> StandardScaler -> PCA(32), fit on train",
+    "kohonen": "winner-take-all, Euclidean distance, instar rule, init from training samples",
+    "grossberg": "one outstar weight per unit, output = P(Abnormal | winning unit)",
+    "decision": "Abnormal if output >= 0.5"
+  },
+  "training": {
+    "kohonen_epochs": 20,
+    "alpha": "0.5 -> 0.01 exponential",
+    "grossberg_epochs": 10,
+    "beta": 0.05,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "pca_explained_variance": 0.7331633567810059
+  },
+  "config_search_val": [
+    {
+      "config": "CPN-16 (4x4 Kohonen units)",
+      "kohonen_units": 16,
+      "val_f1": 0.60431654676259,
+      "val_roc_auc": 0.6039425743177653,
+      "dead_units": 0,
+      "seconds": 0.9640312219999885
+    },
+    {
+      "config": "CPN-64 (8x8 Kohonen units)",
+      "kohonen_units": 64,
+      "val_f1": 0.6162464985994398,
+      "val_roc_auc": 0.6222755231300305,
+      "dead_units": 0,
+      "seconds": 1.3004790139999898
+    },
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "kohonen_units": 144,
+      "val_f1": 0.6198019801980198,
+      "val_roc_auc": 0.6644328169142838,
+      "dead_units": 0,
+      "seconds": 1.5465530269999874
+    }
+  ],
+  "selected_config": "CPN-144 (12x12 Kohonen units)",
+  "summary_test": [
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "n_runs": 3,
+      "accuracy": "0.568 ± 0.007",
+      "precision": "0.607 ± 0.014",
+      "recall": "0.612 ± 0.044",
+      "f1": "0.609 ± 0.015",
+      "roc_auc": "0.620 ± 0.002"
+    }
+  ],
+  "runs": [
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "seed": 42,
+      "split": "val",
+      "train_seconds": 1.6492865459999848,
+      "dead_units": 0,
+      "accuracy": 0.6016597510373444,
+      "precision": 0.6561844863731656,
+      "recall": 0.5872420262664165,
+      "f1": 0.6198019801980198,
+      "roc_auc": 0.6644328169142838,
+      "tn": 267,
+      "fp": 164,
+      "fn": 220,
+      "tp": 313
+    },
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "seed": 42,
+      "split": "test",
+      "train_seconds": 1.6492865459999848,
+      "dead_units": 0,
+      "accuracy": 0.567398119122257,
+      "precision": 0.6155419222903885,
+      "recall": 0.571157495256167,
+      "f1": 0.59251968503937,
+      "roc_auc": 0.6207140020299192,
+      "tn": 242,
+      "fp": 188,
+      "fn": 226,
+      "tp": 301
+    },
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "seed": 43,
+      "split": "val",
+      "train_seconds": 1.728911941000007,
+      "dead_units": 0,
+      "accuracy": 0.5840248962655602,
+      "precision": 0.6161971830985915,
+      "recall": 0.6566604127579737,
+      "f1": 0.6357856494096276,
+      "roc_auc": 0.6512081942165128,
+      "tn": 213,
+      "fp": 218,
+      "fn": 183,
+      "tp": 350
+    },
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "seed": 43,
+      "split": "test",
+      "train_seconds": 1.728911941000007,
+      "dead_units": 0,
+      "accuracy": 0.5611285266457681,
+      "precision": 0.5911413969335605,
+      "recall": 0.6584440227703985,
+      "f1": 0.6229802513464991,
+      "roc_auc": 0.622042275274701,
+      "tn": 190,
+      "fp": 240,
+      "fn": 180,
+      "tp": 347
+    },
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "seed": 44,
+      "split": "val",
+      "train_seconds": 1.6769645159999982,
+      "dead_units": 0,
+      "accuracy": 0.6037344398340249,
+      "precision": 0.6513026052104208,
+      "recall": 0.6097560975609756,
+      "f1": 0.6298449612403101,
+      "roc_auc": 0.6713215481253509,
+      "tn": 257,
+      "fp": 174,
+      "fn": 208,
+      "tp": 325
+    },
+    {
+      "config": "CPN-144 (12x12 Kohonen units)",
+      "seed": 44,
+      "split": "test",
+      "train_seconds": 1.6769645159999982,
+      "dead_units": 0,
+      "accuracy": 0.5747126436781609,
+      "precision": 0.6153846153846154,
+      "recall": 0.6072106261859582,
+      "f1": 0.6112702960840497,
+      "roc_auc": 0.6183575305591105,
+      "tn": 230,
+      "fp": 200,
+      "fn": 207,
+      "tp": 320
+    }
+  ],
+  "library_versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "PIL": "12.3.0",
+    "yaml": "6.0.3",
+    "openpyxl": "3.1.5",
+    "tqdm": "not installed",
+    "torch": "2.14.1+cu130",
+    "torchvision": "0.29.1+cu130",
+    "psutil": "7.2.2"
+  }
+}
